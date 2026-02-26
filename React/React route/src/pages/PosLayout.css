@@ -1,0 +1,19 @@
+.flex{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    /* background-color: black; */
+}
+nav{
+    height: 100vh;
+    width: 35%;
+    background-color:blue;
+    padding: 10px;
+    /* flex: 1; */
+
+}
+
+main{
+    width: 100%;
+    text-align: center;
+}

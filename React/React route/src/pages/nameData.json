@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Alice Johnson",
+    "job": "Software Engineer"
+  },
+  {
+    "name": "Mark Thompson",
+    "job": "Accountant"
+  },
+  {
+    "name": "Sarah Chen",
+    "job": "Graphic Designer"
+  },
+  {
+    "name": "James Wilson",
+    "job": "Chef"
+  },
+  {
+    "name": "Elena Rodriguez",
+    "job": "Architect"
+  },
+  {
+    "name": "David Smith",
+    "job": "Nurse"
+  },
+  {
+    "name": "Linda Wu",
+    "job": "Librarian"
+  },
+  {
+    "name": "Robert Brown",
+    "job": "Electrician"
+  }
+]
