@@ -4,15 +4,28 @@ from api.serializers import ProductSerializer, OrderSerializer, ProductInfoSeria
 from api.models import Product, Order, OrderItem
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import generic
 
 
 class ProductAPIListView(generic.ListAPIView):
-    queruset = Product.object.all()
+    queryset=Product.object.all()
     serializer_class = ProductSerializer
 
 class ProductDetailAPIView(generic.RetriveAPIView):
-    queruset = Product.object.all()
+    queryset = Product.object.all()
     serializer_class = ProductSerializer
+
+class OrderListAPIView(generic.ListAPIView):
+    queryset = Order.object.all()
+    serializer_class = OrderSerializer
+
+class OrderListAPIView(generic.ListAPIView):
+    queryset = Order.object.all()
+    serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(user=self.request.user)
 
 # @api_view(['GET'])
 # def product_list(request):
