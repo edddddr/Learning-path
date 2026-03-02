@@ -7,6 +7,7 @@ import PosLayout from "./pages/PosLayout"
 // import Usereducer_hook from "./pages/Usereducer_hook"
 import UseMemo_hook from "./pages/UseMemo_hook"
 import UseRef_hook from "./pages/UseRef_hook"
+import Custom_hook from "./pages/Custom_hook"
 import './pos.css'
 function App() {
   return <>
@@ -22,6 +23,7 @@ function App() {
       {/* <Route paht="/usereducer" element={<Usereducer_hook/>}/> */}
       <Route path="/usememo" element={<UseMemo_hook/>}/>
       <Route path="/useref" element={<UseRef_hook/>}/>
+      <Route path="/custom" element={<Custom_hook/>}/>
 
   </Routes>
   </> 
