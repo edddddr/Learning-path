@@ -1,54 +1,44 @@
-import {useState, useEffect, createContext, useContext} from "react"
-
-interface Pokemon {
-  id: number;
-  name: string;
-  types: string[];
-  stats: {
-    hp: number;
-    attack: number;
-    defense: number;
-  };
-  sprite: string;
-};
+import { usePokimon, PokemonProvider } from "./store"
+const PokemonList = ({})=>{
+      const {pokemon} = usePokimon()
 
 
+      console.log(pokemon.map((p)=> {}))
 
+      return (<div>
+        {pokemon.map((p)=> (
+          <li key={p.id}>
+            {p.name}
+          </li>
+        ))}
+      </div>)
 
-function usePokemon(){
-    const [pokemon, setPokemon] = useState<Pokemon[]>([])
-
-    useEffect(()=>{
-        fetch("/pokemon.json").then((response) => response.json()).then((data) => setPokemon(data))
-    }, [])
-
-    return {pokemon}
 }
 
-const PokemonContext = createContext({pokemon: [] as Pokemon[]})
-
-const PokimonList = ()=>{
-
-  const {pokemon} = useContext(PokemonContext)
-    
-      return (<div>
-        {pokemon.map(p => (
-          <div key={p.id}>{p.name}</div>
-        ))}
-      </div>);
-};
+function SearchBox(){
+  const {search, setSearch} = usePokimon()
+  return <>
+    <input placeholder="search"
+           value={search}
+           onChange={(e) => setSearch(e.target.value)}/>
+  </>
+}
 
 
 
 function Custom_hook(){
 
-    return <>
-    <PokemonContext.Provider value={usePokemon()}>
-      <PokimonList/>
-      </PokemonContext.Provider>
-        </>
+  return <>
+    <>
+    <PokemonProvider>
+      <SearchBox/>
+      <PokemonList/>
+    </PokemonProvider>
+    </>
+  </>
 
 }
 
 
 export default Custom_hook
+
